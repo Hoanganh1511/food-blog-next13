@@ -19,6 +19,7 @@ const Sidebar = () => {
     queryFn: getAllPosts,
     staleTime: 10000,
   });
+  console.log(dataCategories, dataAllPosts);
   const selected = arrayPathname[arrayPathname.length - 1];
   return (
     <div className="hidden sm:block min-w-[240px] pr-[20px] border-r border-[#fda47c]">

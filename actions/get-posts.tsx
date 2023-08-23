@@ -6,6 +6,7 @@ interface Query {
   pageIndex?: number;
 }
 const ITEMS_PER_PAGE = 3;
+
 const getQueryPosts = async ({ query }: { query?: string }) => {
   const posts = await client.fetch(
     groq`*[_type=="post" && title match $query ]{
@@ -38,6 +39,25 @@ const getAllPosts = async (): Promise<Post[]> => {
     cache: "no-store",
   });
   return posts;
+};
+const get8Posts = async (tag: string) => {
+  const posts = await client.fetch(
+    groq`*[_type=="post"  &&  references(*[_type=="tag" && title == $queryId ]._id) ]{
+    ...,
+    author->,
+    categories[]->,
+    tags[]->,
+  } | order(_createdAt desc) [0..7]
+  `,
+    {
+      tag,
+      cache: "no-store",
+    }
+  );
+  return {
+    posts,
+    total: posts.length,
+  };
 };
 const getCategoryPosts = async (): Promise<Post[]> => {
   const querySanity = groq`*[_type=="post" ]{
@@ -83,4 +103,4 @@ const getTagPosts = async ({ queryId, pageIndex = 0 }: Query) => {
     total: total.length,
   };
 };
-export { getQueryPosts, getAllPosts, getCategoryPosts, getTagPosts };
+export { getQueryPosts, get8Posts, getAllPosts, getCategoryPosts, getTagPosts };

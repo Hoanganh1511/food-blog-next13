@@ -21,7 +21,6 @@ interface ShellProps
     VariantProps<typeof shellVariants> {
   as?: React.ElementType;
 }
-
 function Shell({
   className,
   as: Comp = "section",

@@ -34,7 +34,9 @@ const MediumHeader = () => {
     },
     [searchParams]
   );
-  const handleSearch = () => {
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    setShowSearchForm(false);
     startTransition(() => {
       router.push(
         `/search?${createQueryString({
@@ -47,21 +49,23 @@ const MediumHeader = () => {
     <div className="sticky top-0 bg-[#f4f4f4] dark:bg-[#181818] z-50  ">
       {isShowSearchForm && (
         <div className="fixed top-0 left-0 w-full h-full bg-[#002987d6]">
-          <div
-            ref={ref}
-            className="animate-searchBox absolute right-0 top-0 flex items-center  w-[300px] h-[50px] px-[20px] bg-white"
-          >
-            <input
-              type="text"
-              placeholder="Search Articles"
-              className="w-full outline-none border-none font-semibold text-black/70"
-              value={valueTyped}
-              onChange={(e: any) => setValueTyped(e.target.value)}
-            />
-            <button onClick={handleSearch}>
-              <ImSearch size={20} className="text-black/80 " />
-            </button>
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div
+              ref={ref}
+              className="animate-searchBox absolute right-0 top-0 flex items-center  w-[300px] h-[50px] px-[20px] bg-white"
+            >
+              <input
+                type="text"
+                placeholder="Search Articles"
+                className="w-full outline-none border-none font-semibold text-black/70"
+                value={valueTyped}
+                onChange={(e: any) => setValueTyped(e.target.value)}
+              />
+              <button type="submit">
+                <ImSearch size={20} className="text-black/80 " />
+              </button>
+            </div>
+          </form>
         </div>
       )}
 

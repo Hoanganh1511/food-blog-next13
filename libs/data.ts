@@ -7,4 +7,8 @@ export const categories = [
     title: "Food",
     key: "food",
   },
+  {
+    title: "Special",
+    key: "special",
+  },
 ];

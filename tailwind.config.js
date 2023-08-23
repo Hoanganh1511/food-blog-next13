@@ -17,6 +17,9 @@ module.exports = {
           foreground: "hsl(var(--primary-foreground))",
         },
       },
+      backgroundImage: {
+        newestPost: "linear-gradient(rgba(50,105,70,1), #FFD0AE)",
+      },
       gridTemplateColumns: {
         sidebar: "300px auto", //for sidebar layout
         "sidebar-collapsed": "64px auto", //for collapsed sidebar layout

@@ -39,7 +39,7 @@ const PostCard: React.FC<PostProps> = ({ post }) => {
               {post.title}
             </h2>
             <p className="font-light leading-5  dark:text-white  group-hover:text-white">
-              {post.overview.slice(0, 120)}...
+              {post.overview?.slice(0, 120)}...
             </p>
             <div className="mt-[10px] flex  items-center">
               <span className="block pt-[6px] text-[14px] font-semibold group-hover:text-white dark:text-white">

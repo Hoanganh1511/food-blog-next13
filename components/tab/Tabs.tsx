@@ -5,25 +5,28 @@ import { useRouter } from "next/navigation";
 import ClientSideRoute from "../ClientSideRoute";
 import Link from "next/link";
 import { categories } from "@/libs/data";
+import Container from "../ui/Container";
 const Tabs = () => {
   return (
-    <div id="tab-head" className="flex gap-[20px] mb-[12px] border-b">
-      {categories.map((item, idx) => (
-        <Link
-          key={idx}
-          href={{
-            pathname: `/category/${item.title}`,
-          }}
-        >
-          <div
-            id="tab"
-            className={`relative px-[50px] py-[15px] text-[15px] uppercase  font-bold cursor-pointer hover:text-blue-950/80 dark:text-white duration-100 hover:text-[#ec7f71]`}
+    <Container>
+      <div id="tab-head" className="flex gap-[50px] mb-[12px] border-b">
+        {categories.map((item, idx) => (
+          <Link
+            key={idx}
+            href={{
+              pathname: `/category/${item.title}`,
+            }}
           >
-            {item.title}
-          </div>
-        </Link>
-      ))}
-    </div>
+            <div
+              id="tab"
+              className={`relative  py-[15px] text-[15px] uppercase  font-bold cursor-pointer  dark:text-white duration-100 hover:text-[#ec7f71]`}
+            >
+              {item.title}
+            </div>
+          </Link>
+        ))}
+      </div>
+    </Container>
   );
 };
 

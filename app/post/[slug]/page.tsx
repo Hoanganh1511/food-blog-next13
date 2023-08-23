@@ -68,19 +68,13 @@ const Post: React.FC<PostPageProps> = async ({ params: { slug } }) => {
             </span>
           </div>
           <div className="">
-            <div className="my-[30px] w-full h-auto max-h-[600px] relative ">
+            <div className="my-[30px] w-full min-h-[500px] max-h-[600px] relative ">
               <Image
                 src={urlFor(post.mainImage).url()}
                 alt={post.author.name}
-                width="0"
-                height="0"
-                sizes="100%"
-                style={{
-                  width: "100%",
-                  objectFit: "cover",
-                  maxHeight: "500px",
-                }}
-                className="object-cover object-center mx-auto rounded-[12px]"
+                fill
+                sizes="100vw"
+                className="object-cover object-center"
               />
             </div>
             <div>
