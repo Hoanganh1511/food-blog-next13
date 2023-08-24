@@ -1,5 +1,5 @@
 import getCategories from "@/actions/get-categories";
-import { getTagPosts } from "@/actions/get-posts";
+import { ITEMS_PER_PAGE, getTagPosts } from "@/actions/get-posts";
 import { Metadata, ResolvingMetadata } from "next";
 import React from "react";
 import CategoryList from "@/components/CategoryList";
@@ -27,7 +27,7 @@ const CategoryPage: React.FC<TagPageProps> = async ({
     pageIndex: pageIndex ? parseInt(pageIndex) : 0,
   });
 
-  const pageCount = Math.ceil(total / 3);
+  const pageCount = Math.ceil(total / ITEMS_PER_PAGE);
   return (
     <div className="w-full">
       {showType === "category" && (

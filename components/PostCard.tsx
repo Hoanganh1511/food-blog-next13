@@ -31,6 +31,7 @@ const PostCard: React.FC<PostProps> = ({ post }) => {
               src={urlFor(post.mainImage).url()}
               alt="post image"
               fill
+              loading="lazy"
               className="object-cover"
             />
           </div>

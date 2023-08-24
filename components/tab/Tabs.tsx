@@ -19,7 +19,9 @@ const Tabs = () => {
           >
             <div
               id="tab"
-              className={`relative  py-[15px] text-[15px] uppercase  font-bold cursor-pointer  dark:text-white duration-100 hover:text-[#ec7f71]`}
+              className={`relative overflow-hidden py-[15px] text-[15px] uppercase  font-bold cursor-pointer  dark:text-white duration-100 hover:text-[#ec7f71]
+                after:absolute after:-translate-x-full after:
+              `}
             >
               {item.title}
             </div>

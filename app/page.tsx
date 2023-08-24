@@ -8,6 +8,9 @@ import InputSearchHome from "@/components/ui/input-search-home";
 import Link from "next/link";
 import PopularThisWeekList from "@/components/PopularThisWeekList";
 import Tiles from "@/components/Tiles";
+import Footer from "@/components/Footer";
+import CTA from "@/components/CTA";
+import Socials from "@/components/Socials";
 interface CategoryPageProps {
   searchParams: {
     category: any;
@@ -26,7 +29,10 @@ const Home: React.FC<CategoryPageProps> = async ({ searchParams }) => {
         <InputSearchHome />
         <PopularThisWeekList posts={posts} />
         <Tiles posts={posts} />
+        <CTA />
+        <Socials />
       </div>
+      <Footer />
     </>
   );
 };

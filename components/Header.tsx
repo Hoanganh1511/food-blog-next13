@@ -81,13 +81,13 @@ const Header = () => {
         </div>
       )}
 
-      <div className="mx-auto px-[20px] max-w-[1420px] py-[20px]">
+      <div className="mx-auto px-[20px] max-w-[1420px] xl:max-w-[1820px] py-[20px]">
         <div className="flex justify-between items-center ">
-          <div className="flex items-center md:hidden w-1/3 ">
+          {/* <div className="flex items-center md:hidden w-1/3 ">
             <button onClick={() => setShowSearchForm(true)}>
               <RiSearchLine size={23} />
             </button>
-          </div>
+          </div> */}
           <div className="w-1/3">
             <div className="flex items-center gap-[20px]">
               <button>
@@ -95,21 +95,21 @@ const Header = () => {
               </button>
               <Link href="/">
                 <h1 className="dark:text-white  text-center md:text-left font-bold relative">
-                  <span className="text-[60px]">T</span>
-                  <span className="text-[56px]">u</span>
-                  <span className="text-[54px]">a</span>
-                  <span className="text-[52px]">n</span>
-                  <span className="text-[50px]">a</span>
-                  <span className="text-[48px]">n</span>
-                  <span className="text-[46px]">h</span>
-                  <span className="text-[50px]">.</span>
-                  <span className="text-[60px]">C</span>
-                  <span className="text-[56px]">o</span>
-                  <span className="text-[54px]">o</span>
-                  <span className="text-[52px]">k</span>
-                  <span className="text-[50px]">i</span>
-                  <span className="text-[48px]">e</span>
-                  <span className="text-[46px]">s</span>
+                  <span className="text-[40px] md:text-[60px]">T</span>
+                  <span className=" text-[40px] md:text-[56px]">u</span>
+                  <span className="text-[40px] md:text-[54px]">a</span>
+                  <span className="text-[40px] md:text-[52px]">n</span>
+                  <span className="text-[40px] md:text-[50px]">a</span>
+                  <span className="text-[40px] md:text-[48px]">n</span>
+                  <span className="text-[40px] md:text-[46px]">h</span>
+                  <span className="text-[40px] md:text-[50px]">.</span>
+                  <span className="text-[40px] md:text-[60px]">C</span>
+                  <span className="text-[40px] md:text-[56px]">o</span>
+                  <span className="text-[40px] md:text-[54px]">o</span>
+                  <span className="text-[40px] md:text-[52px]">k</span>
+                  <span className="text-[40px] md:text-[50px]">i</span>
+                  <span className="text-[40px] md:text-[48px]">e</span>
+                  <span className="text-[40px] md:text-[46px]">s</span>
                 </h1>
               </Link>
             </div>

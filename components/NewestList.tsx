@@ -7,7 +7,7 @@ interface NewestListProps {
 const NewestList: React.FC<NewestListProps> = ({ posts }) => {
   return (
     <Container>
-      <div className="grid gap-8 grid-cols-3">
+      <div className="grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {posts.map((post, idx) => {
           return <NewestCard key={post._id} post={post} idx={idx + 1} />;
         })}

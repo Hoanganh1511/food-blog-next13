@@ -15,7 +15,7 @@ const PopularThisWeekList: React.FC<PopularThisWeekListProps> = ({ posts }) => {
         <div className="grid grid-cols-4 gap-[15px]">
           {posts.map((post) => {
             return (
-              <div key={post._id} className="col-span-3">
+              <div key={post._id} className="col-span-4 lg:col-span-3">
                 <PopularThisWeekPost post={post} />
               </div>
             );

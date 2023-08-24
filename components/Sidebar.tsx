@@ -1,31 +1,20 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
-import getCategories from "@/actions/get-categories";
-import { getAllPosts } from "@/actions/get-posts";
 import { usePathname } from "next/navigation";
-
-const Sidebar = () => {
+interface SidebarProps {
+  categories: any[];
+  allPosts: any[];
+}
+const Sidebar: React.FC<SidebarProps> = ({ categories, allPosts }) => {
   const pathname = usePathname();
   const arrayPathname = pathname!.split("/");
-  const dataCategories = useQuery({
-    queryKey: ["filter-categories"],
-    queryFn: getCategories,
-    staleTime: 10000,
-  });
-  const dataAllPosts = useQuery({
-    queryKey: ["filter-posts"],
-    queryFn: getAllPosts,
-    staleTime: 10000,
-  });
-  console.log(dataCategories, dataAllPosts);
   const selected = arrayPathname[arrayPathname.length - 1];
   return (
     <div className="hidden sm:block min-w-[240px] pr-[20px] border-r border-[#fda47c]">
       <h4 className="text-[28px] font-bold mb-[20px]">My Post Index</h4>
       <ul>
-        {dataCategories.data?.map((item, idx) => {
+        {categories?.map((item, idx) => {
           return (
             <li key={idx} className="mb-[12px]">
               <h5
@@ -42,7 +31,7 @@ const Sidebar = () => {
                 </Link>
               </h5>
               <ul className="pl-[20px] flex flex-col ">
-                {item.tags.map((tag: any) => {
+                {item.tags?.map((tag: any) => {
                   return (
                     <li key={tag.title} className="flex gap-[6px] items-center">
                       <Link
@@ -66,7 +55,7 @@ const Sidebar = () => {
                       <span className="block pt-[2px] font-bold">
                         (
                         {
-                          dataAllPosts.data?.filter((item) => {
+                          allPosts?.filter((item) => {
                             return item.tags.find(
                               (item: any) => item.title === tag.title
                             );

@@ -5,7 +5,7 @@ interface Query {
   queryId?: string;
   pageIndex?: number;
 }
-const ITEMS_PER_PAGE = 3;
+export const ITEMS_PER_PAGE = 6;
 
 const getQueryPosts = async ({ query }: { query?: string }) => {
   const posts = await client.fetch(

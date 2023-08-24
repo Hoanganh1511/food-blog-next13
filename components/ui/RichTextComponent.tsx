@@ -5,7 +5,14 @@ import urlFor from "@/libs/urlFor";
 const PortableTextComponents = {
   types: {
     image: ({ value }: any) => (
-      <Image src={urlFor(value).url()} alt="Blog Post Image" fill />
+      <div className="relative w-full min-h-[400px] my-[20px]">
+        <Image
+          src={urlFor(value).url()}
+          alt="Blog Post Image"
+          fill
+          className="object-cover"
+        />
+      </div>
     ),
     callToAction: ({ value, isInline }: any) =>
       isInline ? (
@@ -51,7 +58,9 @@ const PortableTextComponents = {
       </blockquote>
     ),
     normal: ({ children }: any) => (
-      <p className="text-[25px] dark:text-white/90">{children}</p>
+      <p className="text-[25px] dark:text-white/90 leading-[35px]">
+        {children}
+      </p>
     ),
   },
   marks: {

@@ -15,7 +15,7 @@ const getCategories = async (): Promise<Category[]> => {
   } | order(_createdAt desc)
   `;
   const categories = await client.fetch(querySanity, {
-    cache: "no-store",
+    cache: "force-cache",
   });
   return categories;
 };
